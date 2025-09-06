@@ -11,7 +11,10 @@ public class ConfigurationReader
     public BotConfiguration SunBotConfig { get; set; }
     public BotConfiguration SnowBotConfig { get; set; }
 
-    
+    /// <summary>
+    /// Read Configuration File Async (JSON File)
+    /// </summary>
+    /// <param name="filePath"></param>
     public async Task ReadConfigurationFileAsync(string filePath)
     {
         try

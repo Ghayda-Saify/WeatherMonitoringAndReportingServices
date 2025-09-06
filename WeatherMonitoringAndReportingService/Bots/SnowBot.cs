@@ -14,6 +14,10 @@ public class SnowBot: IObserver
         this._snowBotConfiguration = configurationReader.SnowBotConfig;
         this._weatherService = weatherService;
     }
+    /// <summary>
+    /// Here we Update the weather data whenever Update method is called
+    /// -> then we call the display method if the condition is true
+    /// </summary>
     public void Update()
     {
         this._weatherData = _weatherService.WeatherData;
@@ -23,7 +27,9 @@ public class SnowBot: IObserver
             this.Display();
         }
     }
-
+    /// <summary>
+    /// Display the Bot's message that has been read from config. file
+    /// </summary>
     public void Display()
     {
         Console.WriteLine("SnowBot activated!");
