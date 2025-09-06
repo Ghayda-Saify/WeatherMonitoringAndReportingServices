@@ -1,6 +1,7 @@
 ﻿namespace WeatherMonitoringAndReportingService;
 
-public interface IObserverOfBots
+public interface IObserver
 {
     public void Update();
+    public void Display();
 }
