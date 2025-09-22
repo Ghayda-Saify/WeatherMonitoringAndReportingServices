@@ -21,15 +21,15 @@ public class WeatherService  : IObservable
     }
     public void Add(IObserver observer)
     {
-        this._bots.Add(observer);
+        _bots.Add(observer);
     }
     public void Remove(IObserver observer)
     {
-        this._bots.Remove(observer);
+        _bots.Remove(observer);
     }
     public void Notify()
     {
-        foreach (var observer in this._bots)
+        foreach (var observer in _bots)
         {
             observer.Update();
         }

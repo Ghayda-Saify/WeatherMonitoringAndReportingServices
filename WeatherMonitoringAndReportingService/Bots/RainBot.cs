@@ -12,8 +12,8 @@ public class RainBot : IObserver
 
     public RainBot(ConfigurationReader configurationReader,IObservable weatherService)
     {
-        this._rainBotConfiguration = configurationReader.RainBotConfig;
-        this._weatherService = weatherService;
+        _rainBotConfiguration = configurationReader.RainBotConfig;
+        _weatherService = weatherService;
     }
     /// <summary>
     /// Here we Update the weather data whenever Update method is called
@@ -21,11 +21,11 @@ public class RainBot : IObserver
     /// </summary>
     public void Update()
     {
-        this._weatherData = _weatherService.WeatherData;
+        _weatherData = _weatherService.WeatherData;
         // If the Humidity is more than the Threshold (from the config file) then Display message.
         if (_weatherData.Humidity > _rainBotConfiguration.Threshold)
         {
-            this.Display();
+            Display();
         }
     }
     /// <summary>

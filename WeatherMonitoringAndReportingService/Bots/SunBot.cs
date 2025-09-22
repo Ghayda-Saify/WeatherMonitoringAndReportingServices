@@ -11,8 +11,8 @@ public class SunBot: IObserver
 
     public SunBot(ConfigurationReader configurationReader, IObservable weatherService)
     {
-        this._sunBotConfiguration = configurationReader.SunBotConfig;
-        this._weatherService = weatherService;
+        _sunBotConfiguration = configurationReader.SunBotConfig;
+        _weatherService = weatherService;
     }
     /// <summary>
     /// Here we Update the weather data whenever Update method is called
@@ -20,7 +20,7 @@ public class SunBot: IObserver
     /// </summary>
     public void Update()
     {
-        this._weatherData = _weatherService.WeatherData;
+        _weatherData = _weatherService.WeatherData;
         // If the Temperature is more than the Threshold (from the config file) then Display message.
         if (_weatherData.Temperature > _sunBotConfiguration.Threshold)
         {

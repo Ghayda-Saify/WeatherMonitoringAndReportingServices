@@ -1,4 +1,5 @@
-﻿using WeatherMonitoringAndReportingService.Bots;
+﻿using System.Text;
+using WeatherMonitoringAndReportingService.Bots;
 using WeatherMonitoringAndReportingService.InputFiles;
 using WeatherMonitoringAndReportingService.Observable;
 
@@ -12,9 +13,20 @@ public class Program
     private static SnowBot _snowBot;
     private static SunBot _sunBot;
     private static ConfigurationReader _configurationReader;
+    private static StringBuilder _welcomeMessage;
 
+    public Program()
+    {
+        _welcomeMessage = new StringBuilder();
+        _welcomeMessage.Append("======================================");
+        _welcomeMessage.Append("-----------------WELCOME TO WEATHER STATION-----------------");
+        _welcomeMessage.Append("Please Enter your Data in format of JSON/XML : ");
+    }
+    
     public static async Task Main(string[] args)
     {
+        // Starting the Program
+        Console.WriteLine(_welcomeMessage);
         // Read Configuration File
         _configurationReader = new ConfigurationReader();
         try
