@@ -8,7 +8,7 @@ public class SnowBot: IObserver
     private readonly BotConfiguration _snowBotConfiguration;
     private readonly IObservable _weatherService;
     
-    public SnowBot(ConfigurationReader configurationReader , IObservable weatherService)
+    public SnowBot(ConfigurationReader? configurationReader , IObservable weatherService)
     {
         _snowBotConfiguration = configurationReader.SnowBotConfig;
         _weatherService = weatherService;
@@ -19,9 +19,9 @@ public class SnowBot: IObserver
     /// </summary>
     public void Update()
     {
-        var _weatherData = _weatherService.WeatherData;
+        var weatherData = _weatherService.WeatherData;
         // If the Temperature is less than the Threshold (from the config file) then Display message.
-        if (_weatherData.Temperature < _snowBotConfiguration.Threshold)
+        if (weatherData.Temperature < _snowBotConfiguration.Threshold)
         {
             Display();
         }
